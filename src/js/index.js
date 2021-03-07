@@ -12,4 +12,15 @@ import "../styles/index.scss";
 import { Home } from "./component/home.js";
 
 //render your react application
-ReactDOM.render(<Home />, document.querySelector("#app"));
+let counter = 0;
+setInterval(function() {
+	const cuatro = Math.floor(counter / 10000);
+	const tres = Math.floor(counter / 1000);
+	const dos = Math.floor(counter / 100);
+	const uno = Math.floor(counter / 10);
+	counter++;
+	ReactDOM.render(
+		<Home sUno={uno} sDos={dos} sTres={tres} sCuatro={cuatro} />,
+		document.querySelector("#app")
+	);
+}, 100);
